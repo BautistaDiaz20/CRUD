@@ -1,0 +1,176 @@
+/* Paleta bosque: verdes, menta, blanco, acentos oscuros */
+:root {
+    --forest-dark: #23402a;
+    --forest-green: #3e5c43;
+    --forest-mint: #a7cfc4;
+    --forest-light: #d6e7df;
+    --forest-white: #f8faf8;
+    --forest-accent: #18321a;
+    --radius: 12px;
+    --shadow: 0 4px 24px 0 rgba(35, 64, 42, 0.10);
+    --input-border: #a7cfc4;
+    --table-header: #23402a;
+    --table-hover: #a7cfc433;
+}
+
+/* Fondo con imagen pixel art de bosque */
+body {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: var(--forest-dark);
+    /* Imagen de fondo pixel art bosque (de Lospec, libre de uso) */
+    background: var(--forest-dark) url('../escena-estilo-pixel-art-bosque-bosque-arboles-luna_902338-23911.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #23402acc 0%, #a7cfc455 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Contenedor principal */
+#productosContainer, form {
+    background: rgba(255,255,255,0.85);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 18px;
+    margin: 32px auto 0 auto;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    text-align: center;
+    color: var(--forest-green);
+    margin-top: 32px;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #23402a33;
+    z-index: 1;
+    position: relative;
+}
+
+form {
+    margin-bottom: 24px;
+    border-left: 5px solid var(--forest-mint);
+}
+
+form h2 {
+    color: var(--forest-dark);
+    margin-bottom: 14px;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--forest-green);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 2px;
+    margin-bottom: 14px;
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--radius);
+    background: var(--forest-light);
+    font-size: 1rem;
+    color: var(--forest-accent);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--forest-green);
+}
+
+button {
+    background: var(--forest-green);
+    color: #fff;
+    padding: 10px 22px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 8px;
+    margin-top: 6px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: var(--forest-dark);
+}
+
+button[type="button"]:last-child {
+    background: var(--forest-mint);
+    color: var(--forest-accent);
+}
+button[type="button"]:last-child:hover {
+    background: var(--forest-light);
+    color: var(--forest-accent);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--forest-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+}
+
+th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #a7cfc455;
+    font-size: 1rem;
+}
+
+th {
+    background: var(--table-header);
+    color: var(--forest-mint);
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+}
+
+tbody tr:hover {
+    background: var(--table-hover);
+}
+
+.hide-form {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 700px) {
+    #productosContainer, form {
+        padding: 10px 2vw;
+        max-width: 98vw;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    th, td {
+        font-size: 0.95rem;
+        padding: 7px 4px;
+    }
+}
